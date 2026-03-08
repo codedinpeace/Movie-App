@@ -16,10 +16,6 @@ const userModel = mongoose.Schema({
         unique:true,
         minLength:8,
     },
-    resetcode:{
-        type:String,
-        default:null
-    }
 }, {timestamps:true})   
 
-module.exports = userModel
+module.exports = mongoose.model("userModel", userModel)
