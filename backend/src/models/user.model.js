@@ -16,6 +16,18 @@ const userModel = mongoose.Schema({
         unique:true,
         minLength:8,
     },
+    favourites: [
+        {
+            tmdbID:{
+                type:Number,
+                required:true,
+            },
+            addedAt:{
+                type:Date,
+                default:Date.now
+            }
+        }
+    ]
 }, {timestamps:true})   
 
 module.exports = mongoose.model("userModel", userModel)

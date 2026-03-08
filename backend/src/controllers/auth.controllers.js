@@ -11,6 +11,7 @@ const register = async (req,res)=>{
             const user = await userModel.create({
                 name:name,
                 email:email,
+                password:hashedPassword,
                 createdAt:createdAt
             })
 
@@ -27,7 +28,7 @@ const login = async (req,res)=>{
     const {email, password} = req.body
 
     try {
-        const user = await userModel.findOne({email}).select("-password")    
+        const user = await userModel.findOne({email}).select("+password")    
         if(!user) return res.status(404).json({message:"User not found"})
             const verifiedPassword = await bcrypt.compare(password, user.password)
         if(!verifiedPassword) return res.status(409).json({message:"Something went wrong, check your email or password"})

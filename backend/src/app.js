@@ -2,7 +2,7 @@ const cookieParser = require('cookie-parser')
 const express = require('express')
 const authRoutes = require('./routes/app.routes')
 const connectDB = require('./utils/db.connect')
-
+const favouriteRoutes = require("./routes/favourite.routes")
 
 const app = express()
 
@@ -15,6 +15,7 @@ app.use(cookieParser())
 
 // routes
 app.use("/app/auth", authRoutes)
+app.use("/app", favouriteRoutes)
 
 // Database
 connectDB()
