@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+body,html,#root{
+    width: 100%;
+    height: 100%;
+    background: hsl(0, 3%, 7%);
+    /* color: white; */
+    font-family: "Manrope";
+}
