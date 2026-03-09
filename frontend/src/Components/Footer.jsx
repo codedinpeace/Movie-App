@@ -3,7 +3,7 @@ import { Facebook, Twitter, Linkedin } from 'lucide-react'
 
 const Footer = () => {
   return (
-    <footer className="border border-[#1a1a1a] w-full">
+    <footer className="border border-[#1a1a1a] w-full mt-20 ">
       
       {/* Main links */}
       <div className="flex flex-wrap justify-around gap-10 p-8 md:p-10">

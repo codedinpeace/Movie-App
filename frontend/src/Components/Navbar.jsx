@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import {User} from 'lucide-react'
+import useAuthStore from '../States/useAuthStore'
+
+
 
 const navLinks = [
   { label: 'Home', to: '/' },
   { label: 'Movies & Shows', to: '/movies' },
-  { label: 'Support', to: '/support' },
-  { label: 'Subscriptions', to: '/subscriptions' },
+  { label: 'Support', to: '/movies' },
+  { label: 'Subscriptions', to: '/movies' },
 ]
 
 const SearchIcon = () => (
@@ -38,6 +42,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
+  const {isLoggedIn} = useAuthStore() 
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -79,7 +84,7 @@ const Navbar = () => {
           <div className="hidden md:flex items-center gap-1 bg-white/[0.07] border border-white/10 rounded-full px-1.5 py-1.5">
             {navLinks.map(({ label, to }) => (
               <Link
-                key={to}
+                key={label}
                 to={to}
                 className={`text-sm font-medium px-4 py-1.5 rounded-full transition-all duration-200 no-underline whitespace-nowrap
                   ${isActive(to)
@@ -94,18 +99,24 @@ const Navbar = () => {
 
           {/* Right icons */}
           <div className="flex items-center gap-1 flex-shrink-0">
-            <button
+           <button
               aria-label="Search"
               className="p-2 rounded-full text-white/70 hover:text-white hover:bg-white/10 transition-all duration-200 cursor-pointer border-none bg-transparent"
             >
               <SearchIcon />
             </button>
-            <button
-              aria-label="Notifications"
+            { isLoggedIn ?
+             <Link to="/profile"> <button
+              aria-label="Account"
               className="p-2 rounded-full text-white/70 hover:text-white hover:bg-white/10 transition-all duration-200 cursor-pointer border-none bg-transparent"
-            >
-              <BellIcon />
-            </button>
+              >
+              <User />
+            </button></Link>
+
+            :
+
+           <Link to="/login"> <button className='px-5 rounded-lg border-2 border-red-600 hover:bg-transparent py-1 bg-red-600 text-white font-semibold'>Login</button> </Link>
+            }
 
             {/* Hamburger — mobile only */}
             <button
@@ -149,7 +160,7 @@ const Navbar = () => {
       >
         {navLinks.map(({ label, to }) => (
           <Link
-            key={to}
+            key={label}
             to={to}
             className={`flex items-center no-underline text-base font-medium py-3.5 px-4 rounded-xl transition-all duration-200 mb-1
               border-b border-white/[0.05] last:border-b-0
