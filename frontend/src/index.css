@@ -7,3 +7,16 @@ body,html,#root{
     /* color: white; */
     font-family: "Manrope";
 }
+
+/* .card{
+    background: linear-gradient(135deg, #0f0f0f , #e500005e );
+} */
+
+.card {
+    background: radial-gradient(
+        circle at top right,
+        rgba(220, 38, 38, 0.35),
+        transparent 40%
+      ),
+      #0f0f0f;
+  }

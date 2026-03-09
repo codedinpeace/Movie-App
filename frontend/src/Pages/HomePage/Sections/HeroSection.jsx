@@ -1,5 +1,5 @@
 import React from 'react'
-import bgHero from '../../../assets/bg2.png'
+import bgHero from '../../../assets/bg2.webp'
 import Navbar from '../../../Components/Navbar'
 
 const HeroSection = () => {
