@@ -7,9 +7,9 @@ import useAuthStore from '../States/useAuthStore'
 
 const navLinks = [
   { label: 'Home', to: '/' },
-  { label: 'Movies & Shows', to: '/movies' },
-  { label: 'Support', to: '/movies' },
-  { label: 'Subscriptions', to: '/movies' },
+  { label: 'Our Recommendation', to: '/recommendations' },
+  { label: 'Movies', to: '/movies' },
+  { label: 'Shows', to: '/shows' },
 ]
 
 const SearchIcon = () => (

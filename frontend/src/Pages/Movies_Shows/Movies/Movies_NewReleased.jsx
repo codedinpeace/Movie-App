@@ -2,11 +2,14 @@ import React, { useEffect, useRef, useState } from 'react'
 import useMoviestore from '../../../States/useMovieStore'
 import { Calendar, Eye, ChevronLeft, ChevronRight } from 'lucide-react'
 import Loader from '../../../Components/Loader'
+import { useNavigate } from 'react-router-dom'
 
 const Movies_NewReleased = () => {
 
+  const navigate = useNavigate()
   const { loading, popularMovies, getPopularMovies } = useMoviestore()
   const popularMovieArr = popularMovies.slice(0, 10)
+  
 
   const sliderRef = useRef(null)
   const [page, setPage] = useState(0)
@@ -106,6 +109,7 @@ const Movies_NewReleased = () => {
 
           {popularMovieArr.map((popularMovie) => (
             <div
+            onClick={()=>{navigate(`/details/${popularMovie.id}`)}}
               key={popularMovie.id}
               className='cursor-pointer min-w-[100%] sm:min-w-[48%] md:min-w-[31%] lg:min-w-[23%] xl:min-w-[18%] h-120 rounded-xl bg-[#1a1a1a] flex justify-center flex-col items-center'
             >

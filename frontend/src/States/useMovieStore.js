@@ -8,6 +8,8 @@ const useMovieStore = create((set)=>({
     topRatedShows:[],
     popularMovies:[],
     popularShows:[],
+    all_movies:[],
+    all_shows:[],
     loading:false,
 
     getPopularMovies: async () => {
@@ -67,6 +69,26 @@ const useMovieStore = create((set)=>({
         try {
             const response = await tmdbInstance.get("/tv/top_rated")
             set({topRatedShows:response.data.results, loading:false})
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
+    getAllMovies : async () =>{
+        set({loading:true})
+        try {
+            const response = await tmdbInstance.get("/discover/movie")
+            set({all_movies:response.data.results, loading:false})
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
+    getAllShows: async () => {
+        set({loading:true})
+        try {
+            const response = await tmdbInstance.get(`/discover/tv`)
+            set({all_shows:response.data.results, loading:false})
         } catch (error) {
             console.log(error)
         }

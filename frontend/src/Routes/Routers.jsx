@@ -8,6 +8,8 @@
   import Profile from '../Pages/ProfilePage/Profile'
   import Information from '../Pages/Info_Page/Information'
   import useAuthStore from '../States/useAuthStore'
+import Movies from '../Pages/Movies_Shows/Movies/Movies'
+import Shows from '../Pages/Movies_Shows/Shows/Shows'
 
   const Routers = () => {
 
@@ -20,7 +22,9 @@
           <Route path='/register' element={isLoggedIn ? <All_Movies /> : <Register />} />
           <Route path='/profile/edit' element={isLoggedIn ?  <EditInfo /> : <Login />} />
 
-          <Route path='/movies' element={<All_Movies />}/>
+          <Route path='/recommendations' element={<All_Movies />}/>
+          <Route path='/movies' element={<Movies />}/>
+          <Route path='/shows' element={<Shows />}/>
           
           <Route path='/profile' element={isLoggedIn ? <Profile /> : <Login />} />
 

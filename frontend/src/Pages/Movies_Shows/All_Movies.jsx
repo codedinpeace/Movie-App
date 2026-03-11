@@ -6,6 +6,8 @@ import Show_TopRated from './Shows/Shows_Genres'
 import Shows_Trending from './Shows/Shows_Trending'
 import Shows_NewReleased from './Shows/Shows_NewReleased'
 import Navbar from '../../Components/Navbar'
+import Footer from '../../Components/Footer'
+import DiscoverNow from '../../Components/DiscoverNow'
 
 const All_Movies = () => {
   return (
@@ -23,7 +25,9 @@ const All_Movies = () => {
       <Movies_Trending />
       <Shows_Trending />
       <Movies_TopRated />
-      <Show_TopRated />
+      <Show_TopRated /> 
+      <DiscoverNow />
+      <Footer />
     </div>
     </>
   )
