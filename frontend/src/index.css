@@ -21,3 +21,6 @@ body,html,#root{
       #0f0f0f;
   }
 
+.overlayCard{
+    background: linear-gradient(180deg, #00000000, #141414);
+}

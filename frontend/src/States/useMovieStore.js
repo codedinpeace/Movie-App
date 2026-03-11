@@ -10,6 +10,7 @@ const useMovieStore = create((set)=>({
     popularShows:[],
     all_movies:[],
     all_shows:[],
+    details:[],
     loading:false,
 
     getPopularMovies: async () => {
@@ -93,6 +94,16 @@ const useMovieStore = create((set)=>({
             console.log(error)
         }
     },
+
+    getMovieById : async (id) => {  
+        set({loading:true})
+        try {
+            const response = await tmdbInstance.get(`/movie/${id}`)
+            set({details:response.data, loading:false})
+        } catch (error) {
+            console.log(error)
+        }   
+    }
 }))
 
 export default useMovieStore
