@@ -109,7 +109,7 @@ const Shows_NewReleased = () => {
 
           {popularShowsArr.map((popularMovie) => (
             <div
-              onClick={()=>{navigate(`/details/${popularMovie.id}`)}}
+              onClick={()=>{navigate(`/recommendations/details/${popularMovie.id}`)}}
               key={popularMovie.id}
               className='cursor-pointer min-w-[100%] sm:min-w-[48%] md:min-w-[31%] lg:min-w-[23%] xl:min-w-[18%] h-120 rounded-xl bg-[#1a1a1a] flex justify-center flex-col items-center'
             >

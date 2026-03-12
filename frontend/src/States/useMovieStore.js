@@ -11,6 +11,7 @@ const useMovieStore = create((set)=>({
     all_movies:[],
     all_shows:[],
     details:[],
+    cast:[],
     loading:false,
 
     getPopularMovies: async () => {
@@ -98,12 +99,15 @@ const useMovieStore = create((set)=>({
     getMovieById : async (id) => {  
         set({loading:true})
         try {
-            const response = await tmdbInstance.get(`/movie/${id}`)
-            set({details:response.data, loading:false})
+            const response = await tmdbInstance.get(`/movie/${id}`, {
+                params:{append_to_response:"credits"},
+            })
+            set({details:response.data, cast:response.data.credits.cast || [], loading:false})
         } catch (error) {
             console.log(error)
+            set({loading:false})
         }   
-    }
+    },
 }))
 
 export default useMovieStore

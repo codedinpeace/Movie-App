@@ -23,12 +23,14 @@ import Shows from '../Pages/Movies_Shows/Shows/Shows'
           <Route path='/profile/edit' element={isLoggedIn ?  <EditInfo /> : <Login />} />
 
           <Route path='/recommendations' element={<All_Movies />}/>
+
           <Route path='/movies' element={<Movies />}/>
           <Route path='/shows' element={<Shows />}/>
           
           <Route path='/profile' element={isLoggedIn ? <Profile /> : <Login />} />
 
           <Route path='/details/:id' element={isLoggedIn ?  <Information /> : <Login />} />
+          <Route path='/recommendations/details/:id' element={isLoggedIn ?  <Information /> : <Login />} />
         </Routes>
     )
   }
